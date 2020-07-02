@@ -11,7 +11,7 @@ const StyledButton = styled(MUIButton)`
   border-radius: 50%;
   background-color: #262626;
   :hover {
-    background-color: #404040;
+    background-color: #737373;
   }
 `;
 
