@@ -1,6 +1,0 @@
-[
-  { "name": "droidcam", "code": "droidcam" },
-  { "name": "firefox", "code": "firefox" },
-  { "name": "acento", "code": "sh ~/startup/acento.sh" },
-  { "name": "rails", "code": "~/Documents/autoseg/sso/bin/rails s -p 3005" }
-]
