@@ -3,9 +3,7 @@ import styled from "styled-components";
 
 const StyledNavBar = styled.div`
   width: 100%;
-  background-color: ${({ props }) => {
-    return props.bkgColor;
-  }};
+  background-color: #88898c;
   height: 64px;
   color: white;
   display: flex;

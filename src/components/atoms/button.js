@@ -1,24 +1,40 @@
 import React from "react";
-import { Button as MUIButton } from "@material-ui/core";
-import styled from "styled-components";
+import { Button as MUIButton, Box } from "@material-ui/core";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
-const StyledButton = styled(MUIButton)`
-  background-color: ${({ props }) => {
-    return props.bkgColor;
-  }};
-  width: 100%;
-  height: 100%;
-  color: ${({ props }) => {
-    return props.color;
-  }};
-  font-size: 16px;
-`;
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#D7D7D9",
+    },
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        color: "#FFF",
+        backgroundColor: "#88898C",
+        outline: {
+          "&:hover": {
+            backgroundColor: "#88898C",
+          },
+        },
+      },
+    },
+  },
+});
 
-function Button({ children, bkgColor, color, onClick }) {
+function Button({ children, bkgColor, color, component, onClick, ...props }) {
   return (
-    <StyledButton onClick={onClick} props={{ bkgColor, color }}>
-      {children}
-    </StyledButton>
+    <MuiThemeProvider theme={theme}>
+      <MUIButton
+        color="primary"
+        onClick={onClick}
+        component={component}
+        {...props}
+      >
+        {children}
+      </MUIButton>
+    </MuiThemeProvider>
   );
 }
 
