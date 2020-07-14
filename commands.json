@@ -1,0 +1,1 @@
+[{"name":"droidcam","code":"droidcam"},{"name":"acentos","code":"sh ~/startup/acento.sh"},{"name":"open bash-executor projetct","code":"cd ~/Documents/projetos/bash-shortcut-creator && code . && konsole -e 'bash -c \"yarn start; exec\"' & konsole -e 'bash -c \"yarn electron; exec\"'"},{"name":"Android screen","code":"scrcpy -b 16M --render-expired-frames"}]

@@ -2,13 +2,33 @@ import React, { useState } from "react";
 import { Input, Button } from "../atoms";
 import { FormControl } from "@material-ui/core";
 
-function Form() {
+function Form(props) {
   const [form, setForm] = useState({
     name: "",
     code: "",
   });
 
+  useState(() => {
+    console.log(props);
+    const { nameToSet, codeToSet } = props;
+    if (nameToSet && codeToSet) {
+      setForm({
+        name: nameToSet,
+        code: codeToSet,
+      });
+    }
+    console.log(nameToSet, codeToSet);
+
+    return () => {
+      props.location.state = null;
+    };
+  }, []);
+
   const handleSubmit = () => {
+    setForm({
+      name: "",
+      code: "",
+    });
     window.ipcRenderer.send("createCommand", form);
   };
 
@@ -18,6 +38,7 @@ function Form() {
         <Input
           label="Name"
           variant="outlined"
+          value={form.name}
           onChange={(e) => setForm({ ...form, name: e.target.value })}
         />
         <Input
@@ -26,6 +47,7 @@ function Form() {
           width="500px"
           label="Code"
           variant="outlined"
+          value={form.code}
           onChange={(e) => setForm({ ...form, code: e.target.value })}
         />
         <Button

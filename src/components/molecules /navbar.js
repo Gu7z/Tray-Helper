@@ -1,19 +1,31 @@
 import React from "react";
-import styled from "styled-components";
+import { Box } from "@material-ui/core";
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
-const StyledNavBar = styled.div`
-  width: 100%;
-  background-color: #88898c;
-  height: 64px;
-  color: white;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`;
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#D7D7D9",
+    },
+  },
+});
 
 function NavBar({ bkgColor, children }) {
-  return <StyledNavBar props={{ bkgColor }}> {children} </StyledNavBar>;
+  return (
+    <MuiThemeProvider theme={theme}>
+      <Box
+        width={1}
+        bgcolor={bkgColor}
+        height={64}
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-round"
+        alignItems="center"
+      >
+        {children}
+      </Box>
+    </MuiThemeProvider>
+  );
 }
 
 export default NavBar;
