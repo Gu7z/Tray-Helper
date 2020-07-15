@@ -6,7 +6,7 @@ const List = () => {
   const [commands, setCommands] = useState([]);
 
   useEffect(() => {
-    const dataFromElectron = window.ipcRenderer.sendSync("getFileData");
+    const dataFromElectron = window.ipcRenderer.sendSync("getCommandsData");
     setCommands(dataFromElectron);
   }, []);
 

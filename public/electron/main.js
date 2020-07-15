@@ -3,10 +3,12 @@ const { app, ipcMain, BrowserWindow, Menu, Tray } = require("electron");
 
 // ------------ File Content ------------
 const path = require("path");
-const iconPath = path.join(__dirname, "images/icon.png");
-const commandsPath = path.join(__dirname, "../commands.json");
+const iconPath = path.join(__dirname, "icon.png");
+const commandsPath = path.join(__dirname, "./commands.json");
 const fs = require("fs");
 const fsPromisse = require("fs").promises;
+const Store = require("electron-store");
+const store = new Store();
 
 // ------------ Exec commands ------------
 const exec = require("child_process").exec;
@@ -18,11 +20,12 @@ let opened = true;
 
 // ------------ Functions to export and execute ------------
 
-// Check if commands.json exists
-const fileExists = () => {
-  const fileExist = fs.existsSync(commandsPath);
-  if (!fileExist) {
-    fs.appendFileSync("commands.json", "[]");
+// Verify if store exists
+
+const storeExists = () => {
+  const exist = store.get("commands");
+  if (!exist) {
+    store.set("commands", []);
   }
 };
 
@@ -33,37 +36,38 @@ const executeCommand = (command) => {
 };
 
 // Return commadns from commands.json
-const getFileData = async () => {
-  const dataStrign = await fsPromisse.readFile(commandsPath, "utf8");
-  const dataJson = JSON.parse(dataStrign);
+const getCommandsData = () => {
+  console.log("Getting data");
+  const commands = store.get("commands");
+  console.log(commands);
 
-  // EveryTime that getFileData is called, we send message to our webApplication
-
-  return dataJson;
+  return commands;
 };
 
 // Delete commands
-const deleteCommand = async (commandName) => {
-  console.log("Deleting commands");
-  const fileData = await getFileData();
-  const newFileData = fileData.filter((data) => data.name !== commandName);
+const deleteCommand = (commandName) => {
+  console.log("Deleting command");
 
-  fs.writeFile(commandsPath, JSON.stringify(newFileData), (error) => {
-    if (error) return error;
-  });
-  createTray();
-  return newFileData;
+  const commandsData = getCommandsData();
+  const newCommandsData = commandsData.filter(
+    (data) => data.name !== commandName
+  );
+
+  store.set("commands", newCommandsData);
+  console.log(newCommandsData);
+
+  return newCommandsData;
 };
 
 // Put commands at commands.json
-const createCommand = async (name, code) => {
+const createCommand = (name, code) => {
   const obj = {
     name,
     code,
   };
   let exist = false;
-  let fileData = await getFileData();
-  let newData = fileData.map((data) => {
+  const commandsData = getCommandsData();
+  let newCommandsData = commandsData.map((data) => {
     if (data.name === name) {
       exist = true;
       return {
@@ -75,22 +79,18 @@ const createCommand = async (name, code) => {
   });
 
   if (!exist) {
-    newData = [...fileData, obj];
+    newCommandsData = [...commandsData, obj];
   }
 
-  fs.writeFile(commandsPath, JSON.stringify(newData), (error) => {
-    if (error) return error;
-  });
+  store.set("commands", newCommandsData);
+
   createTray();
-  return newData;
+  return newCommandsData;
 };
 
 // ------------ Electron functions ------------
 
 const createWindow = () => {
-  // Every time that the user open the window to create or see commands, check if commands.json still existing
-  fileExists();
-
   win = new BrowserWindow({
     width: 360,
     height: 640,
@@ -102,13 +102,15 @@ const createWindow = () => {
     // frame: false,
   });
 
-  win.loadURL("http://localhost:3000");
+  const buildPath = path.join(__dirname, "../index.html");
+  const buildFiles = `file://${buildPath}`;
+  win.loadURL(buildFiles);
 };
 
-const createTray = async () => {
-  const fileData = await getFileData();
+const createTray = () => {
+  const commandsData = getCommandsData();
 
-  const template = fileData.map((each) => {
+  const template = commandsData.map((each) => {
     return {
       label: each.name,
       click() {
@@ -140,9 +142,9 @@ const createTray = async () => {
 // ------------ Exports ------------
 
 // Send data when called
-ipcMain.on("getFileData", async (event, _data) => {
+ipcMain.on("getCommandsData", (event, _data) => {
   console.log("Entrando aqui");
-  event.returnValue = await getFileData();
+  event.returnValue = getCommandsData();
 });
 
 // To execute command
@@ -164,9 +166,9 @@ ipcMain.on("createCommand", (_event, { name, code }) => {
 });
 
 // To delete commands
-ipcMain.on("deleteCommand", async (event, commandName) => {
+ipcMain.on("deleteCommand", (event, commandName) => {
   console.log(`Deleting command: ${commandName}`);
-  const newCommands = await deleteCommand(commandName);
+  const newCommands = deleteCommand(commandName);
   event.returnValue = newCommands;
 });
 
@@ -176,8 +178,8 @@ app.on("window-all-closed", (e) => e.preventDefault());
 // run first
 app.whenReady().then(() => {
   tray = new Tray(iconPath);
-  // First check if file exist
-  fileExists();
+  // First check if file existfileExists();
+  storeExists();
 
   createWindow();
   createTray();

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "./components/atoms";
 import { NavBar } from "./components/molecules ";
 import FloatingButton from "./components/atoms/floatingButton";
