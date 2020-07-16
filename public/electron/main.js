@@ -11,7 +11,7 @@ const Store = require("electron-store");
 const store = new Store();
 
 // ------------ Exec commands ------------
-const exec = require("child_process").exec;
+const ipc = require("node-ipc");
 
 // ------------ Electron content start ------------
 let tray = null;
@@ -32,7 +32,9 @@ const storeExists = () => {
 // Run the commands from json
 const executeCommand = (command) => {
   console.log("Executando: ", command);
-  exec(command);
+  ipc.connectTo("runner", () => {
+    ipc.of.runner.emit("run", command);
+  });
 };
 
 // Return commadns from commands.json
@@ -102,7 +104,7 @@ const createWindow = () => {
     // frame: false,
   });
 
-  const buildPath = path.join(__dirname, "../index.html");
+  const buildPath = path.join(__dirname, "../../build/index.html");
   const buildFiles = `file://${buildPath}`;
   win.loadURL(buildFiles);
 };
