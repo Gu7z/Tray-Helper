@@ -1,8 +1,9 @@
 {
-  "name": "bash-shortcut-creator",
+  "name": "tray-helper",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
+  "author": "gustavo <gustavoferri13@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -19,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "node public/electron/start.js",
+    "electron": "electron .",
     "package": "electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "build": {
@@ -28,7 +29,18 @@
       "build/**/*",
       "node_modules/**/*",
       "commands.json"
-    ]
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "deb",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
   },
   "eslintConfig": {
     "extends": "react-app"

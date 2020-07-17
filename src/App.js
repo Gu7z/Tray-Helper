@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "./components/atoms";
 import { NavBar } from "./components/molecules ";
 import FloatingButton from "./components/atoms/floatingButton";
 import { Close } from "@material-ui/icons";
 import { Box } from "@material-ui/core";
 import { Form, List } from "./components/organisms";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useHistory } from "react-router-dom";
 
 function App() {
+  const history = useHistory();
+
   const closeWindow = () => {
     window.ipcRenderer.send("killWindow");
     console.log(window.ipcRenderer);
   };
+
+  useEffect(() => {
+    if (history) {
+      history.push("/");
+    }
+  }, [history]);
 
   return (
     <div style={{ height: window.innerHeight, backgroundColor: "#0D0D0D" }}>
@@ -56,7 +64,7 @@ function App() {
               </FloatingButton>
             </>
           )}
-        ></Route>
+        />
         <Route path="/buttons">
           <List />
         </Route>

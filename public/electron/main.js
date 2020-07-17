@@ -12,11 +12,12 @@ const store = new Store();
 
 // ------------ Exec commands ------------
 const ipc = require("node-ipc");
+const { exec } = require("child_process");
 
 // ------------ Electron content start ------------
 let tray = null;
 let win = null;
-let opened = true;
+let opened = false;
 
 // ------------ Functions to export and execute ------------
 
@@ -32,9 +33,7 @@ const storeExists = () => {
 // Run the commands from json
 const executeCommand = (command) => {
   console.log("Executando: ", command);
-  ipc.connectTo("runner", () => {
-    ipc.of.runner.emit("run", command);
-  });
+  exec(command);
 };
 
 // Return commadns from commands.json
@@ -58,6 +57,7 @@ const deleteCommand = (commandName) => {
   store.set("commands", newCommandsData);
   console.log(newCommandsData);
 
+  createTray();
   return newCommandsData;
 };
 
