@@ -5,8 +5,6 @@ const { app, ipcMain, BrowserWindow, Menu, Tray } = require("electron");
 const path = require("path");
 const iconPath = path.join(__dirname, "icon.png");
 const commandsPath = path.join(__dirname, "./commands.json");
-const fs = require("fs");
-const fsPromisse = require("fs").promises;
 const Store = require("electron-store");
 const store = new Store();
 
