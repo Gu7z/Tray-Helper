@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="build/icon.png" alt="GoBarber" width="90">
+  <img src="public/electron/icon.png" alt="Tray-Helper-Icon" width="90">
 <br>
 <br>
 Tray-Helper - Electron
@@ -47,4 +47,4 @@ Tray-Helper - Electron
 
 ## :cocktail: Contributing
 
-One way to contribute with this project is building the MAC app. :blush:
+One way to contribute with this project is building the MAC app or optmizing. :blush:

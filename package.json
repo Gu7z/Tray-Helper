@@ -1,9 +1,10 @@
 {
   "name": "tray-helper",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "./",
   "author": "gustavo <gustavoferri13@gmail.com>",
+  "main": "public/electron/main.js",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -13,7 +14,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
-  "main": "public/electron/main.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -27,8 +27,7 @@
     "asar": false,
     "files": [
       "build/**/*",
-      "node_modules/**/*",
-      "commands.json"
+      "node_modules/**/*"
     ],
     "linux": {
       "target": [

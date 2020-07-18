@@ -3,7 +3,7 @@ const { app, ipcMain, BrowserWindow, Menu, Tray } = require("electron");
 
 // ------------ File Content ------------
 const path = require("path");
-const iconPath = path.join(__dirname, "icon.png");
+const iconPath = path.join(__dirname, "./../icon.png");
 const Store = require("electron-store");
 const store = new Store();
 
@@ -98,6 +98,7 @@ const createWindow = () => {
     },
     resizable: false,
     frame: false,
+    icon: iconPath,
   });
 
   const buildPath = path.join(__dirname, "../../build/index.html");
