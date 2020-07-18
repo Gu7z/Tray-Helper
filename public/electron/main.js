@@ -97,7 +97,7 @@ const createWindow = () => {
       preload: __dirname + "/preload.js",
     },
     resizable: false,
-    // frame: false,
+    frame: false,
   });
 
   const buildPath = path.join(__dirname, "../../build/index.html");
