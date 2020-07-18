@@ -4,12 +4,10 @@ const { app, ipcMain, BrowserWindow, Menu, Tray } = require("electron");
 // ------------ File Content ------------
 const path = require("path");
 const iconPath = path.join(__dirname, "icon.png");
-const commandsPath = path.join(__dirname, "./commands.json");
 const Store = require("electron-store");
 const store = new Store();
 
 // ------------ Exec commands ------------
-const ipc = require("node-ipc");
 const { exec } = require("child_process");
 
 // ------------ Electron content start ------------
