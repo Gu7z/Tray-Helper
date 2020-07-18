@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="public/electron/icon.png" alt="Tray-Helper-Icon" width="90">
+  <img src="public/icon.png" alt="Tray-Helper-Icon" width="90">
 <br>
 <br>
 Tray-Helper - Electron
