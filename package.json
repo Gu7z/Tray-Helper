@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "package": "electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never"
+    "pack:linux": "electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never",
+    "pack:win": "electron-builder build -w -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "build": {
     "asar": false,
