@@ -28,30 +28,24 @@ const storeExists = () => {
 
 // Run the commands from json
 const executeCommand = (command) => {
-  console.log("Executando: ", command);
   exec(command);
 };
 
 // Return commadns from commands.json
 const getCommandsData = () => {
-  console.log("Getting data");
   const commands = store.get("commands");
-  console.log(commands);
 
   return commands;
 };
 
 // Delete commands
 const deleteCommand = (commandName) => {
-  console.log("Deleting command");
-
   const commandsData = getCommandsData();
   const newCommandsData = commandsData.filter(
     (data) => data.name !== commandName
   );
 
   store.set("commands", newCommandsData);
-  console.log(newCommandsData);
 
   createTray();
   return newCommandsData;
@@ -142,7 +136,6 @@ const createTray = () => {
 
 // Send data when called
 ipcMain.on("getCommandsData", (event, _data) => {
-  console.log("Entrando aqui");
   event.returnValue = getCommandsData();
 });
 
@@ -153,26 +146,26 @@ ipcMain.on("executeComand", (_, command) => {
 
 // To close / kill window
 ipcMain.on("killWindow", () => {
-  console.log("Fechando janela");
   win.close();
   opened = false;
 });
 
 // To create commands
 ipcMain.on("createCommand", (_event, { name, code }) => {
-  console.log(`Creating command: ${name} \nWith code: ${code}`);
   createCommand(name, code);
 });
 
 // To delete commands
 ipcMain.on("deleteCommand", (event, commandName) => {
-  console.log(`Deleting command: ${commandName}`);
   const newCommands = deleteCommand(commandName);
   event.returnValue = newCommands;
 });
 
 // App Execute
-app.on("window-all-closed", (e) => e.preventDefault());
+app.on("window-all-closed", (e) => {
+  e.preventDefault();
+  opened = false;
+});
 
 // run first
 app.whenReady().then(() => {
