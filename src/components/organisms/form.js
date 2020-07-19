@@ -23,12 +23,35 @@ function Form(props) {
     };
   }, []);
 
+  const validations = () => {
+    let error = "";
+    let haveError = false;
+    if (form.name.length > 20) {
+      error = "Name too long";
+      haveError = true;
+    }
+    if (form.name.trim().length <= 0) {
+      error = "Name field cannot be empty";
+      haveError = true;
+    }
+
+    return {
+      error,
+      haveError,
+    };
+  };
+
   const handleSubmit = () => {
-    setForm({
-      name: "",
-      code: "",
-    });
-    createCommand(form);
+    const validation = validations();
+    if (!validation.haveError) {
+      setForm({
+        name: "",
+        code: "",
+      });
+      createCommand(form);
+    } else {
+      alert(validation.error);
+    }
   };
 
   return (

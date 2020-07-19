@@ -21,6 +21,8 @@ const List = () => {
     <div
       style={{
         color: "white",
+        maxHeight: 560,
+        overflow: "auto",
       }}
     >
       {commands.map((command, key) => (
@@ -29,6 +31,7 @@ const List = () => {
           display="flex"
           alignItems="center"
           justifyContent="space-between"
+          height="56px"
         >
           <Box component="h3" maxWidth="40%">
             {command.name}

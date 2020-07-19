@@ -85,7 +85,7 @@ const createCommand = (name, code) => {
 const createWindow = () => {
   win = new BrowserWindow({
     width: 360,
-    height: 640,
+    height: 644,
     webPreferences: {
       nodeIntegration: true,
       preload: __dirname + "/preload.js",

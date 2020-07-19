@@ -18,7 +18,7 @@ function NavBar() {
       <Box
         width={1}
         bgcolor="#88898c"
-        height={64}
+        height={56}
         display="flex"
         flexDirection="row"
         justifyContent="space-round"
