@@ -17,7 +17,7 @@ Tray-Helper - Electron
 ## :video_game: Getting Started
 
 1. Clone this repository;
-2. `Cd tray-helper`;
+2. `cd Tray-Helper`;
 3. Run `yarn` to install the dependencies;
 4. Run `yarn start` to run the server;
 5. Run `yarn electron` to run the electron app.
@@ -25,7 +25,7 @@ Tray-Helper - Electron
 ## :hammer: How to build
 
 1. Clone this repository;
-2. `Cd tray-helper`;
+2. `cd Tray-Helper`;
 3. Run `yarn` to install the dependencies;
 4. Build the app;
    - To build the linux app use `yarn pack:lin`;
