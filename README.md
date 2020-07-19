@@ -47,7 +47,9 @@ Tray-Helper - Electron
 
 ## :eyes: Tip
 
-If you just run the code like `yarn start` from the tray-helper, it will run in background. To open in the terminal use something like `konsole -e 'bash -c "yarn start; exec"'`. Running like this, you can see the command running. :wink:
+If you just run the code like `ls -la` from the tray-helper, it will run but you cannot control without something like task manager. A good way to solve this is running you command in terminal, you can use something like `konsole -e "ls -la"`. :wink:
+
+[Reference Link from Ask Ubuntu](https://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the)
 
 ## :cocktail: Contributing
 
