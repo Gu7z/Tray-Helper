@@ -45,6 +45,10 @@ Tray-Helper - Electron
    - To build the linux app use `yarn pack:lin`;
    - To build the windows app use `yarn pack:win`;
 
+## :eyes: Tip
+
+If you just run the code like `yarn start` from the tray-helper, it will run in background. To open in the terminal use something like `konsole -e 'bash -c "yarn start; exec"'`. Running like this, you can see the command running. :wink:
+
 ## :cocktail: Contributing
 
 One way to contribute with this project is building the MAC app or optmizing. :blush:
