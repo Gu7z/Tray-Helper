@@ -91,13 +91,13 @@ const createWindow = () => {
       preload: __dirname + "/preload.js",
     },
     resizable: false,
-    frame: false,
+    // frame: false,
     icon: iconPath,
   });
 
   const buildPath = path.join(__dirname, "../../build/index.html");
   const buildFiles = `file://${buildPath}`;
-  win.loadURL(buildFiles);
+  win.loadURL("http://localhost:3000");
 };
 
 const createTray = () => {

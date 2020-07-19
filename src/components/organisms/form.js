@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Input, Button } from "../atoms";
 import { FormControl } from "@material-ui/core";
+import { createCommand } from "../../utils";
 
 function Form(props) {
   const [form, setForm] = useState({
@@ -9,7 +10,6 @@ function Form(props) {
   });
 
   useState(() => {
-    console.log(props);
     const { nameToSet, codeToSet } = props;
     if (nameToSet && codeToSet) {
       setForm({
@@ -17,7 +17,6 @@ function Form(props) {
         code: codeToSet,
       });
     }
-    console.log(nameToSet, codeToSet);
 
     return () => {
       props.location.state = null;
@@ -29,7 +28,7 @@ function Form(props) {
       name: "",
       code: "",
     });
-    window.ipcRenderer.send("createCommand", form);
+    createCommand(form);
   };
 
   return (

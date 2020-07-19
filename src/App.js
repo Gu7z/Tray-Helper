@@ -1,19 +1,9 @@
 import React, { useEffect } from "react";
-import { Button } from "./components/atoms";
-import { NavBar } from "./components/molecules ";
-import FloatingButton from "./components/atoms/floatingButton";
-import { Close } from "@material-ui/icons";
-import { Box } from "@material-ui/core";
-import { Form, List } from "./components/organisms";
-import { Switch, Route, Link, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
+import { CreateCommand, CommandsList } from "./components/pages";
 
 function App() {
   const history = useHistory();
-
-  const closeWindow = () => {
-    window.ipcRenderer.send("killWindow");
-    console.log(window.ipcRenderer);
-  };
 
   useEffect(() => {
     if (history) {
@@ -23,50 +13,14 @@ function App() {
 
   return (
     <div style={{ height: window.innerHeight, backgroundColor: "#0D0D0D" }}>
-      <NavBar bkgColor="#88898c">
-        <Button
-          style={{ width: "100%", height: "100%" }}
-          variant="outlined"
-          component={Link}
-          to="/"
-        >
-          Form
-        </Button>
-        <Button
-          style={{ width: "100%", height: "100%" }}
-          component={Link}
-          to="/buttons"
-        >
-          Buttons
-        </Button>
-      </NavBar>
       <Switch>
         <Route
           path="/"
           exact
-          render={(props) => (
-            <>
-              <Box
-                display="flex"
-                mt="48px"
-                alignItems="center"
-                justifyContent="center"
-                width={1}
-              >
-                <Form {...props.location.state} />
-              </Box>
-              <FloatingButton
-                onClick={() => {
-                  closeWindow();
-                }}
-              >
-                <Close />
-              </FloatingButton>
-            </>
-          )}
+          render={(props) => <CreateCommand {...props} />}
         />
         <Route path="/buttons">
-          <List />
+          <CommandsList />
         </Route>
       </Switch>
     </div>

@@ -2,20 +2,19 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../atoms";
 import { Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { getCommands, deleteCommand } from "../../utils";
+
 const List = () => {
   const [commands, setCommands] = useState([]);
 
   useEffect(() => {
-    const dataFromElectron = window.ipcRenderer.sendSync("getCommandsData");
-    setCommands(dataFromElectron);
+    const commands = getCommands();
+    setCommands(commands);
   }, []);
 
   const deleteCommands = (commandName) => {
-    const dataFromElectron = window.ipcRenderer.sendSync(
-      "deleteCommand",
-      commandName
-    );
-    setCommands(dataFromElectron);
+    const commands = deleteCommand(commandName);
+    setCommands(commands);
   };
 
   return (

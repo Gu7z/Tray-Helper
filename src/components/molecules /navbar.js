@@ -1,6 +1,8 @@
 import React from "react";
 import { Box } from "@material-ui/core";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import { Button } from "../atoms";
+import { Link } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
@@ -10,19 +12,33 @@ const theme = createMuiTheme({
   },
 });
 
-function NavBar({ bkgColor, children }) {
+function NavBar() {
   return (
     <MuiThemeProvider theme={theme}>
       <Box
         width={1}
-        bgcolor={bkgColor}
+        bgcolor="#88898c"
         height={64}
         display="flex"
         flexDirection="row"
         justifyContent="space-round"
         alignItems="center"
       >
-        {children}
+        <Button
+          style={{ width: "100%", height: "100%" }}
+          variant="outlined"
+          component={Link}
+          to="/"
+        >
+          Form
+        </Button>
+        <Button
+          style={{ width: "100%", height: "100%" }}
+          component={Link}
+          to="/buttons"
+        >
+          Buttons
+        </Button>
       </Box>
     </MuiThemeProvider>
   );
