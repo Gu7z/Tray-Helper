@@ -47,7 +47,7 @@ Tray-Helper - Electron
 
 ## :eyes: Tip
 
-If you just run the code like `ls -la` from the tray-helper, it will run but you cannot control without something like task manager. A good way to solve this is running you command in terminal, you can use something like `konsole -e "ls -la"`. :wink:
+If you just run the code like `yarn start` from the tray-helper, it will run but you cannot control without something like task manager. A good way to solve this is running you command in terminal, you can use something like `konsole -e "yarn start"`. :wink:
 
 [Reference Link from Ask Ubuntu](https://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the)
 
