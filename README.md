@@ -47,9 +47,11 @@ Tray-Helper - Electron
 
 ## :eyes: Tip
 
-If you just run the code like `yarn start` from the tray-helper, it will run but you cannot control without something like task manager. A good way to solve this is running you command in terminal, you can use something like `konsole -e "yarn start"`. :wink:
+If you just run the code like `yarn start` from the tray-helper, it will run but you cannot control without something like task manager. A good way to solve this is running you command in terminal, you can use something like:
 
-[Reference Link from Ask Ubuntu](https://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the)
+- `konsole -e "yarn start"`.
+
+[Reference Link from Ask Ubuntu](https://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the) :wink:
 
 ## :cocktail: Contributing
 
