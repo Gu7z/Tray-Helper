@@ -14,20 +14,6 @@ Tray-Helper - Electron
 | :-----------------------------------------------------------------------------------------------------------------: |
 | [Gustavo F.](https://github.com/diego3g)
 
-## :blue_book: Features
-
-- :star: React - React is a JavaScript library for building user interfaces;
-  <br/>
-- :dress: Material UI - React components for faster and easier web development;
-  <br/>
-- :sunglasses: Node JS - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine;
-  <br/>
-- :electron: Electron - Electron enables you to create desktop applications with pure JavaScript;
-  <br/>
-- :package: Electron Store - Simple data persistence for your Electron;
-  <br/>
-- :hammer_and_wrench: Electron Builder - A complete solution to package and build a ready for distribution Electron app.
-
 ## :video_game: Getting Started
 
 1. Clone this repository;
@@ -52,6 +38,15 @@ If you just run code like `yarn start` from the tray-helper, it will run but you
 - `konsole -e "yarn start"`.
 
 [Reference Link from Ask Ubuntu](https://askubuntu.com/questions/46627/how-can-i-make-a-script-that-opens-terminal-windows-and-executes-commands-in-the) :wink:
+
+## :blue_book: Features
+
+- :star: React - React is a JavaScript library for building user interfaces;
+- :dress: Material UI - React components for faster and easier web development;
+- :sunglasses: Node JS - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine;
+- :electron: Electron - Electron enables you to create desktop applications with pure JavaScript;
+- :package: Electron Store - Simple data persistence for your Electron;
+- :hammer_and_wrench: Electron Builder - A complete solution to package and build a ready for distribution Electron app.
 
 ## :cocktail: Contributing
 

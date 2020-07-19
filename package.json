@@ -19,9 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron": "electron .",
-    "pack:linux": "electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never",
-    "pack:win": "electron-builder build -w -c.extraMetadata.main=build/electron/main.js --publish never"
+    "electron": "NODE_ENV=development electron .",
+    "pack:linux": "yarn build && electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never",
+    "pack:win": "yarn build && electron-builder build -w -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "build": {
     "asar": false,

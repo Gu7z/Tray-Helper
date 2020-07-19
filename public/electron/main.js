@@ -97,7 +97,12 @@ const createWindow = () => {
 
   const buildPath = path.join(__dirname, "../../build/index.html");
   const buildFiles = `file://${buildPath}`;
-  win.loadURL("http://localhost:3000");
+
+  if (process.env.NODE_ENV === "development") {
+    win.loadURL("http://localhost:3000");
+  } else {
+    win.loadURL(buildFiles);
+  }
 };
 
 const createTray = () => {
