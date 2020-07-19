@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  <img src="public/electron/icon.png" alt="Tray-Helper-Icon" width="90">
+  <img src="public/icon.png" alt="Tray-Helper-Icon" width="90">
 <br>
 <br>
 Tray-Helper - Electron
@@ -42,8 +42,8 @@ Tray-Helper - Electron
 2. `Cd tray-helper`
 3. Run `yarn` to install the dependencies;
 4. Build the app;
-   4.1 To build the linux app use `yarn pack:lin`;
-   4.2 To build the windows app use `yarn pack:win`;
+   - To build the linux app use `yarn pack:lin`;
+   - To build the windows app use `yarn pack:win`;
 
 ## :cocktail: Contributing
 
