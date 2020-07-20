@@ -1,6 +1,6 @@
 {
   "name": "tray-helper",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "homepage": "./",
   "author": "gustavo <gustavoferri13@gmail.com>",
@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron": "NODE_ENV=development electron .",
-    "pack:linux": "yarn build && electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never",
+    "pack:lin": "yarn build && electron-builder build -l -c.extraMetadata.main=build/electron/main.js --publish never",
     "pack:win": "yarn build && electron-builder build -w -c.extraMetadata.main=build/electron/main.js --publish never"
   },
   "build": {
