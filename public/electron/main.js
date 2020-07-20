@@ -120,13 +120,20 @@ const createTray = () => {
   // Open and close window form to add new commands
   const openAndCloseWindow = [
     {
-      label: "Show add form",
+      type: "separator",
+    },
+    {
+      label: "Show form",
       click() {
         if (!opened) {
           createWindow();
           opened = true;
         }
       },
+    },
+    {
+      label: "Quit",
+      role: "quit",
     },
   ];
 
