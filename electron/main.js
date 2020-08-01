@@ -42,9 +42,9 @@ const getCommandsData = () => {
 };
 
 // Delete commands
-const deleteCommand = (commandName) => {
+const deleteCommand = (uuid) => {
   const commandsData = getCommandsData();
-  const newCommandsData = commandsData.filter((data) => data.name !== commandName);
+  const newCommandsData = commandsData.filter((command) => command.uuid !== uuid);
 
   store.set('commands', newCommandsData);
 
@@ -92,7 +92,9 @@ const createCommand = (name, code, uuid) => {
 const createWindow = () => {
   win = new BrowserWindow({
     width: 360,
-    height: 644,
+    height: 672,
+    // width: 680,
+    // height: 720,
     webPreferences: {
       nodeIntegration: true,
       preload: __dirname + '/preload.js',
@@ -170,8 +172,8 @@ ipcMain.on('createCommand', (_event, { name, code, uuid }) => {
 });
 
 // To delete commands
-ipcMain.on('deleteCommand', (event, commandName) => {
-  const newCommands = deleteCommand(commandName);
+ipcMain.on('deleteCommand', (event, uuid) => {
+  const newCommands = deleteCommand(uuid);
   event.returnValue = newCommands;
 });
 

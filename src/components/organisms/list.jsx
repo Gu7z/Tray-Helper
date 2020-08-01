@@ -12,26 +12,20 @@ const List = () => {
     setCommands(commands);
   }, []);
 
-  const deleteCommands = (commandName) => {
-    const commands = deleteCommand(commandName);
+  const deleteCommands = (uuid) => {
+    const commands = deleteCommand(uuid);
     setCommands(commands);
   };
 
   return (
-    <div
-      style={{
-        color: 'white',
-        maxHeight: 520,
-        overflow: 'auto',
-      }}
-    >
+    <Box color="white" height="560px" maxHeight="560px" overflow="auto">
       {commands.map((command, key) => (
         <Box
           key={key}
           display="flex"
           alignItems="center"
           justifyContent="space-between"
-          height="52px"
+          height="56px"
         >
           <Box component="h3" maxWidth="40%" color="#d3d3d3">
             {command.name}
@@ -52,7 +46,7 @@ const List = () => {
             </Button>
             <Button
               onClick={() => {
-                deleteCommands(command.name);
+                deleteCommands(command.uuid);
               }}
             >
               Delete
@@ -60,7 +54,7 @@ const List = () => {
           </Box>
         </Box>
       ))}
-    </div>
+    </Box>
   );
 };
 

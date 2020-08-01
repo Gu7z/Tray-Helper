@@ -41,8 +41,9 @@ const CommandsList = () => {
           position="absolute"
           display="flex"
           justifyContent="center"
-          bottom="16px"
-          height="32px"
+          alignItems="center"
+          bottom={0}
+          height="56px"
         >
           <Button
             onClick={() => {
