@@ -44,7 +44,7 @@
       "linux.desktop"
     ],
     "linux": {
-      "executableName": "Tray-Helper",
+      "executableName": "tray-helper",
       "icon": "electron/icon.png",
       "category": "Utility",
       "desktop": "linux.desktop",
