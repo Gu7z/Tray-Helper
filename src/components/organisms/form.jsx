@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Input, Button } from "../atoms";
-import { FormControl } from "@material-ui/core";
-import { createCommand } from "../../utils";
+import React, { useState } from 'react';
+import { Input, Button } from '../atoms';
+import { FormControl } from '@material-ui/core';
+import { createCommand } from '../../utils';
 
 function Form(props) {
   const [form, setForm] = useState({
-    name: "",
-    code: "",
+    name: '',
+    code: '',
     uuid: null,
   });
 
   useState(() => {
     const { nameToSet, codeToSet, uuidToSet } = props;
+    console.log(props);
 
     if (nameToSet && codeToSet && uuidToSet) {
       setForm({
@@ -27,14 +28,14 @@ function Form(props) {
   }, []);
 
   const validations = () => {
-    let error = "";
+    let error = '';
     let haveError = false;
     if (form.name.length > 20) {
-      error = "Name too long";
+      error = 'Name too long';
       haveError = true;
     }
     if (form.name.trim().length <= 0) {
-      error = "Name field cannot be empty";
+      error = 'Name field cannot be empty';
       haveError = true;
     }
 
@@ -49,9 +50,9 @@ function Form(props) {
     if (!validation.haveError) {
       createCommand(form);
       setForm({
-        name: "",
-        code: "",
-        uuid: "",
+        name: '',
+        code: '',
+        uuid: '',
       });
     } else {
       alert(validation.error);

@@ -21,7 +21,7 @@ const List = () => {
     <div
       style={{
         color: 'white',
-        maxHeight: 560,
+        maxHeight: 520,
         overflow: 'auto',
       }}
     >
@@ -31,7 +31,7 @@ const List = () => {
           display="flex"
           alignItems="center"
           justifyContent="space-between"
-          height="56px"
+          height="52px"
         >
           <Box component="h3" maxWidth="40%" color="#d3d3d3">
             {command.name}
