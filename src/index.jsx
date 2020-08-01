@@ -1,14 +1,14 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import { CreateCommand, CommandsList } from "./components/pages";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
+import { CreateCommand, CommandsList } from './components/pages';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#D7D7D9",
+      main: '#D7D7D9',
     },
   },
 });
@@ -19,8 +19,8 @@ const Index = () => {
       <CssBaseline />
       <MuiThemeProvider theme={theme}>
         <Router>
-          <Route path="/" render={(props) => <CreateCommand {...props} />} />
-          <Route path="/data">
+          <Route exact path="/" render={(props) => <CreateCommand {...props} />} />
+          <Route exact path="/data">
             <CommandsList />
           </Route>
         </Router>
@@ -29,4 +29,4 @@ const Index = () => {
   );
 };
 
-ReactDOM.render(<Index />, document.getElementById("app"));
+ReactDOM.render(<Index />, document.getElementById('app'));

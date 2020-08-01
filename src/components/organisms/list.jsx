@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "../atoms";
-import { Box } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import { getCommands, deleteCommand } from "../../utils";
+import React, { useState, useEffect } from 'react';
+import { Button } from '../atoms';
+import { Box } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { getCommands, deleteCommand } from '../../utils';
 
 const List = () => {
   const [commands, setCommands] = useState([]);
@@ -20,9 +20,9 @@ const List = () => {
   return (
     <div
       style={{
-        color: "white",
+        color: 'white',
         maxHeight: 560,
-        overflow: "auto",
+        overflow: 'auto',
       }}
     >
       {commands.map((command, key) => (
@@ -33,14 +33,14 @@ const List = () => {
           justifyContent="space-between"
           height="56px"
         >
-          <Box component="h3" maxWidth="40%">
+          <Box component="h3" maxWidth="40%" color="#d3d3d3">
             {command.name}
           </Box>
           <Box>
             <Button
               component={Link}
               to={{
-                pathname: "/",
+                pathname: '/',
                 state: {
                   nameToSet: command.name,
                   codeToSet: command.code,
