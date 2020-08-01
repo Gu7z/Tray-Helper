@@ -102,7 +102,7 @@ const createWindow = () => {
     icon: iconPath,
   });
 
-  const buildPath = path.join(__dirname, '../dist/index.html');
+  const buildPath = path.join(__dirname, '../build/index.html');
 
   win.loadFile(buildPath);
 };

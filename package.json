@@ -1,11 +1,16 @@
 {
-  "name": "tray",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "tray-helper",
+  "version": "2.0.0",
+  "private": true,
+  "homepage": "./",
+  "author": "gustavo <gustavoferri13@gmail.com>",
+  "main": "./electron/main.js",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "start": "yarn build && electron ./electron/main.js",
+    "pack:lin": "yarn build && electron-builder build -l -c.extraMetadata.main=electron/main.js --publish never",
+    "pack:win": "yarn build && electron-builder build -w -c.extraMetadata.main=electron/main.js --publish never",
     "lint": "eslint"
   },
   "devDependencies": {
@@ -14,6 +19,7 @@
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "electron-builder": "^22.8.0",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
@@ -26,12 +32,32 @@
     "react-dom": "^16.13.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
-    "webpack-merge": "^5.0.9"
+    "webpack-merge": "^5.0.9",
+    "electron": "^9.1.2"
+  },
+  "build": {
+    "appId": "com.gu7z.app",
+    "asar": false,
+    "files": [
+      "electron/**/*",
+      "build/**/*",
+      "linux.desktop"
+    ],
+    "linux": {
+      "executableName": "Tray-Helper",
+      "icon": "electron/icon.png",
+      "category": "Utility",
+      "desktop": "linux.desktop",
+      "target": [
+        {
+          "target": "deb"
+        }
+      ]
+    }
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
-    "electron": "^9.1.2",
     "electron-store": "^6.0.0",
     "react-router-dom": "^5.2.0",
     "uuid": "^8.3.0"

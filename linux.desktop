@@ -1,0 +1,6 @@
+[Desktop Entry]
+	Name=Tray-Helper
+	Exec=tray-helper
+	Icon=electron/icon.png
+	Type=Application
+	Categories=GTK;GNOME;Utility;
