@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "3418789ccfe603cee04c";
+/******/ 	var hotCurrentHash = "3ed67e8a3d2226f86d8c";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -854,7 +854,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
+/******/ 	return hotCreateRequire("./src/index.jsx")(__webpack_require__.s = "./src/index.jsx");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -79788,10 +79788,10 @@ function warning(condition, message) {
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/index.jsx":
+/*!***********************!*\
+  !*** ./src/index.jsx ***!
+  \***********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -79807,7 +79807,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Index = function Index() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Box"], null, "Hello PUTA MERDA!");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Box"], null, "Hello world teste!");
 };
 
 react_dom__WEBPACK_IMPORTED_MODULE_1__["render"]( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Index, null), document.getElementById("app"));
